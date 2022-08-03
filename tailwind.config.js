@@ -8,10 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: "#7C841E",
-        accent100: "#F8F4E8",
-        crimson: "#FF8458",
-        neutral100: "#FFFAF4",
+        "accent-blue": "#001970",
+        "accent-orange": "#FF5D27",
       },
     },
     listStyleType: {

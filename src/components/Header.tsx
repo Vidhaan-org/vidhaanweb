@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="flex shadow-md flex-col fixed w-full">
       <div className="bg-accent-blue items-center text-white flex justify-between px-7 py-2">
-        <div className="flex h-14">
+        <div className="flex h-12">
           <Image src={vidLogo} objectFit="contain" />
         </div>
         <div className="flex gap-4">
@@ -28,7 +28,7 @@ const Header = () => {
         </div>
       </div>
       <div className="items-center text-accent-blue bg-white flex justify-between px-7 py-2">
-        <div className="ml-4 flex h-14">
+        <div className="ml-4 flex h-12">
           <Image src={ugc} objectFit="contain" />
         </div>
         <div className="flex text-xl">

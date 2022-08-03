@@ -7,18 +7,20 @@ const Button = ({
   textColor,
   onClick,
   children,
+  className,
 }: {
   type: "transparent" | "outline" | "fill"
   color?: "accent-orange" | "accent-blue"
   rounded?: boolean
   textColor?: string
   onClick?: React.MouseEventHandler<HTMLDivElement>
-  children: ReactNode
+  children?: ReactNode
+  className?: string
 }) => {
   return (
     <div
       onClick={onClick}
-      className={`px-3 py-1 items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 cursor-default ${textColor} ${
+      className={`${className} px-3 py-1 w-min items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 cursor-default ${textColor} ${
         type === "transparent"
           ? "bg-none"
           : type === "fill"

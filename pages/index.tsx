@@ -12,6 +12,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="bg-red-500 text-white">Lorem ipsum dolor sit.</div>
+      <div className="bg-blue-500 text-white">
+        welcome to vidhaan{" "}
+        <span className="text-gray-300">//work in progress</span>
+      </div>
     </div>
   )
 }

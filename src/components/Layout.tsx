@@ -1,15 +1,19 @@
 import React, { ReactNode } from "react"
 import Footer from "./Footer"
 import Header from "./Header"
+import SideNav from "./SideNav"
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-screen h-screen overflow-y-auto overflow-x-hidden">
+    <div className="w-screen h-screen overflow-hidden">
       <Header />
-      <main className="min-h-full mt-32 w-full flex flex-col items-center">
-        {children}
-      </main>
-      <Footer />
+      <div className="flex overflow-auto h-[100%] w-full">
+        <SideNav />
+        <main className="h-full w-full flex pt-32 flex-col overflow-y-auto overflow-x-hidden items-center">
+          {children}
+        </main>
+      </div>
+      {/* <Footer /> */}
     </div>
   )
 }

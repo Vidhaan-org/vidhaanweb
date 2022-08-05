@@ -9,6 +9,22 @@
   margin: 0;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  background-color: #ffffff;
+  width: 10px;
+  padding: 2px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #636363;
+  border: 2px #383838 solid;
+  border-radius: 1000px;
+  width: 30px;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: url("../public/fonts/Montserrat/Montserrat-Regular.ttf");

@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       colors: {
         "accent-blue": "#001970",
+        "accent-50": "#F4F4F4",
         "accent-orange": "#FF5D27",
+        "accent-orange-100": "#EF514021",
       },
     },
     listStyleType: {

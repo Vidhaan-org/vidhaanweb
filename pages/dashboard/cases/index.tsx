@@ -1,7 +1,8 @@
+import { useRouter } from "next/router"
 import React from "react"
 import { BsPin, BsPinAngleFill, BsSearch } from "react-icons/bs"
-import Button from "../../src/components/Button"
-import Select from "../../src/components/Select"
+import Button from "../../../src/components/Button"
+import Select from "../../../src/components/Select"
 
 const Cases = () => {
   return (
@@ -84,6 +85,7 @@ const Cases = () => {
 }
 
 const TableRow = () => {
+  const router = useRouter()
   return (
     <div className="grid grid-cols-5 p-2 items-center hover:bg-gray-200">
       <div className="mr-5 line-clamp-1">CGHC01-043756-2019</div>
@@ -101,6 +103,7 @@ const TableRow = () => {
           type="fill"
           color="accent-blue"
           className="col-span-2 opacity-60"
+          onClick={() => router.push("/dashboard/cases/sldjf")}
         >
           <div className="w-full text-center">View Details</div>
         </Button>

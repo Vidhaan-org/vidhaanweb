@@ -6,8 +6,14 @@ import Button from "./Button"
 import Toggle from "./Toggle"
 import { BsMap } from "react-icons/bs"
 import { AiOutlinePhone, AiOutlineUser } from "react-icons/ai"
+import { useRouter } from "next/router"
 
-const Header = () => {
+const Header = ({
+  setLogin,
+}: {
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
+  const router = useRouter()
   const [darkToggle, setDarkToggle] = useState<boolean>(false)
   return (
     <div className="flex z-50 shadow-md flex-col fixed w-full">
@@ -38,7 +44,13 @@ const Header = () => {
           <div className="px-6 items-center gap-1 border-x-2 border-accent-blue font-semibold cursor-pointer flex">
             <AiOutlinePhone /> Contact Us
           </div>
-          <div className="px-6 gap-1 font-semibold cursor-pointer flex">
+          <div
+            onClick={() => {
+              setLogin(true)
+              router.push("/dashboard/home")
+            }}
+            className="px-6 gap-1 font-semibold cursor-pointer flex"
+          >
             <AiOutlineUser /> login
           </div>
         </div>

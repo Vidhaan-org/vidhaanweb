@@ -22,7 +22,7 @@ const Button = ({
   return (
     <div
       onClick={onClick}
-      className={`${className} px-3 py-1 w-${width} items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 cursor-default ${textColor} ${
+      className={`${className} px-3 py-1 w-${width} items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 cursor-default justify-center text-center ${textColor} ${
         type === "transparent"
           ? "bg-none"
           : type === "fill"

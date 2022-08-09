@@ -14,14 +14,12 @@ const FilePetition = () => {
         </div>
         <div className="m-8 grid grid-cols-3 gap-8">
           <div className="flex flex-col gap-1">
-            <div className="text-gray-600 text-sm font-semibold">
-              Case Status
-            </div>
+            <div className="text-gray-600 text-sm font-semibold">Case Type</div>
             <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
           </div>
           <div className="flex flex-col gap-1">
             <div className="text-gray-600 text-sm font-semibold">
-              Case Status
+              Case Category
             </div>
             <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
           </div>
@@ -36,23 +34,23 @@ const FilePetition = () => {
           </div>
           <div className="flex items-center gap-1">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Senior Citizen</label>
+            <label htmlFor="">{"Woman/Child"}</label>
           </div>
           <div className="flex items-center gap-1">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Senior Citizen</label>
+            <label htmlFor="">Leagl aid case</label>
           </div>
           <div className="flex items-center gap-1">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Senior Citizen</label>
+            <label htmlFor="">SC/ST</label>
           </div>
           <div className="flex items-center gap-1">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Senior Citizen</label>
+            <label htmlFor="">Divyang</label>
           </div>
           <div className="flex items-center gap-1">
             <input type="checkbox" name="" id="" />
-            <label htmlFor="">Senior Citizen</label>
+            <label htmlFor="">In custody</label>
           </div>
         </div>
         <div className="bg-gray-300 text-lg text-accent-blue px-6 py-2 rounded-md font-bold">
@@ -60,15 +58,15 @@ const FilePetition = () => {
         </div>
         <div className="m-8 grid grid-cols-3 gap-8">
           <div className="flex flex-col gap-1">
-            <div className="text-gray-600 text-sm font-semibold">
-              Case Status
-            </div>
+            <div className="text-gray-600 text-sm font-semibold">Court</div>
             <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
           </div>
           <div className="flex flex-col gap-1">
-            <div className="text-gray-600 text-sm font-semibold">
-              Case Status
-            </div>
+            <div className="text-gray-600 text-sm font-semibold">State</div>
+            <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="text-gray-600 text-sm font-semibold">District</div>
             <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
           </div>
         </div>

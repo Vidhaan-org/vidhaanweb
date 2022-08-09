@@ -108,3 +108,16 @@ export interface Case {
     }
   ]
 }
+
+export interface PetitionForm {
+  id: 1
+  case_type: string
+  case_category: string
+  special_category: null
+  court: string
+  state: null
+  district: null
+  petitioner: []
+  respondent: []
+  act: []
+}

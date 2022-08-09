@@ -19,7 +19,7 @@ const Header = ({
     <div className="flex z-50 shadow-md flex-col fixed w-full">
       <div className="bg-accent-blue items-center text-white flex justify-between px-7 py-2">
         <div className="flex h-12">
-          <Image src={vidLogo} objectFit="contain" />
+          <Image alt="v" src={vidLogo} objectFit="contain" />
         </div>
         <div className="flex gap-4">
           <Button textColor="text-gray-200" type="transparent">
@@ -35,7 +35,7 @@ const Header = ({
       </div>
       <div className="items-center text-accent-blue bg-white flex justify-between px-7 py-2">
         <div className="ml-5 flex h-12">
-          <Image src={ugc} objectFit="contain" />
+          <Image alt="f" src={ugc} objectFit="contain" />
         </div>
         <div className="flex text-xl">
           <div className="px-6 gap-1 font-semibold cursor-pointer flex">

@@ -1,10 +1,12 @@
 import { useRouter } from "next/router"
 import React from "react"
 import { BsPin, BsPinAngleFill, BsSearch } from "react-icons/bs"
+import { useGetCasesAll } from "../../../src/api/cases/caseService"
 import Button from "../../../src/components/Button"
 import Select from "../../../src/components/Select"
 
 const Cases = () => {
+  const caseQuery = useGetCasesAll()
   return (
     <div className="flex px-10 w-full h-full flex-col">
       <div className="flex mt-14 mx-4 mb-16 h-full flex-col">

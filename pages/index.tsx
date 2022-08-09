@@ -45,7 +45,7 @@ const Home: NextPage = () => {
           </div>
           <div className="col-span-2 my-auto">
             <div className="flex h-full w-full">
-              <Image src={lady} objectFit="contain" />
+              <Image src={lady} alt="la" objectFit="contain" />
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Card = () => {
   return (
     <div className="bg-white grid min-w-[350px] grid-cols-1 w-auto h-full items-center justify-center mx-10 border-t-8 border-accent-blue rounded-lg">
       <div className="flex h-full mx-auto mb-6">
-        <Image src={poster} objectFit="contain" />
+        <Image src={poster} alt="s" objectFit="contain" />
       </div>
       <div className="flex p-4 flex-col">
         <h3 className="text-accent-blue font-bold text-3xl text-center pb-2">
@@ -103,7 +103,7 @@ const NewsCard = () => {
   return (
     <div className="bg-white grid shadow-xl shadow-gray-500 overflow-hidden min-w-[350px] grid-cols-1 w-auto h-full items-center justify-center mx-8 border-b-8 border-accent-blue rounded-lg">
       <div className="flex h-full w-full mb-6">
-        <Image src={news} width={350} objectFit="cover" />
+        <Image src={news} alt="a" width={350} objectFit="cover" />
       </div>
       <div className="flex flex-col pb-9 p-4">
         <h3 className="text-accent-blue font-bold text-3xl text-center pb-2">

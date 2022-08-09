@@ -9,10 +9,6 @@
   margin: 0;
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 ::-webkit-scrollbar {
   background-color: #ffffff;
   width: 10px;
@@ -23,6 +19,22 @@
   border: 2px #383838 solid;
   border-radius: 1000px;
   width: 30px;
+}
+
+.gray-scroll::-webkit-scrollbar {
+  background: #e5e7eb;
+  width: 15px;
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.gray-scroll::-webkit-scrollbar-thumb {
+  background: white;
+  border: #e5e7eb 2px solid;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @font-face {

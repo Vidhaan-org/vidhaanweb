@@ -14,15 +14,15 @@ const Button = ({
   color?: "accent-orange" | "accent-blue"
   rounded?: boolean
   textColor?: string
-  onClick?: React.MouseEventHandler<HTMLDivElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
   children?: ReactNode
   className?: string
   width?: "auto" | "min"
 }) => {
   return (
-    <div
+    <button
       onClick={onClick}
-      className={`${className} px-3 py-1 w-${width} items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 cursor-default justify-center text-center ${textColor} ${
+      className={`${className} px-3 py-1 w-${width} items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 justify-center text-center ${textColor} ${
         type === "transparent"
           ? "bg-none"
           : type === "fill"
@@ -37,7 +37,7 @@ const Button = ({
       } ${rounded ? "rounded-full" : "rounded-md"}`}
     >
       {children}
-    </div>
+    </button>
   )
 }
 

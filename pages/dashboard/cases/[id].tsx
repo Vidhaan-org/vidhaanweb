@@ -4,7 +4,7 @@ import Button from "../../../src/components/Button"
 const Case = () => {
   const [tab, setTab] = useState<"judgement" | "case">("case")
   return (
-    <div className="flex w-full h-full flex-col">
+    <div className="flex w-full overflow-y-auto h-full flex-col">
       <div className="border-l-8 flex flex-col px-9 py-10 border-accent-blue w-full bg-gray-200">
         <div className="text-3xl text-accent-blue font-bold">
           Hari nivas vs University Grants Commission
@@ -13,7 +13,7 @@ const Case = () => {
           {`(24 April, 1973)`}
         </div>
       </div>
-      <div className="flex flex-col h-full px-8 py-6">
+      <div className="flex flex-col px-8 py-6">
         <div className="grid grid-cols-2 gap-6">
           <div className="flex gap-3 flex-col text-lg font-semibold">
             <div className="flex gap-2 items-center">
@@ -47,13 +47,34 @@ const Case = () => {
             </div>
           </div>
         </div>
+        <div className="flex mt-10 text-center flex-col w-full bg-gray-100 rounded-md border border-gray-300">
+          <div className="grid grid-cols-4 font-semibold p-2 bg-gray-300 text-accent-blue">
+            <div className="">Judge</div>
+            <div className="">Hearing Date</div>
+            <div className="">Hearing Date</div>
+            <div className="">Bussiness on Date</div>
+          </div>
+          <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow />
+        </div>
+        <div className="shadow-md mt-3 w-min shadow-gray-400 rounded-md">
+          <Button type="fill" color="accent-orange">
+            <div className="py-2">View Details</div>
+          </Button>
+        </div>
         {/* Case Summary */}
-        <div className="text-lg font-semibold my-2 mt-auto">
+        <div className="text-lg mt-4 font-semibold my-2 ">
           {tab === "case" ? "Case Summary:" : "Judgement Summary:"}
         </div>
-        <div className="rounded-md flex flex-col overflow-hidden bg-gray-200 border border-gray-400">
+
+        <div className="rounded-md h-max flex flex-col overflow-hidden bg-gray-200 border border-gray-400">
           <div className="bg-gray-400 px-8 text-gray-400 py-2">lsdjflk</div>
-          <div className="px-8 py-4">
+          <div className="px-8 py-4 h-max">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
             libero eligendi atque vitae recusandae hic asperiores neque esse,
             nobis veniam alias nesciunt beatae nulla dignissimos dolore
@@ -101,6 +122,21 @@ const Case = () => {
             </Button>
           </div>
         </div>
+      </div>
+    </div>
+  )
+}
+
+const TableRow = () => {
+  return (
+    <div className="grid grid-cols-4 text-center p-2 items-center border-t border-gray-300 hover:bg-gray-200">
+      <div className="mr-5 line-clamp-1">
+        P.Suseela vs University Grants commission
+      </div>
+      <div className="mr-5 line-clamp-1">13 July 2019</div>
+      <div className="mr-5 line-clamp-1">13 July 2019</div>
+      <div className="line-clamp-1">
+        P.Suseela vs University Grants commission
       </div>
     </div>
   )

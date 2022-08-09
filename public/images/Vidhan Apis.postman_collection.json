@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "bffa7603-b4f5-4f83-bbbb-e090c1a54a4f",
+		"name": "Vidhan Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16477893"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check Status', () => {\r",
+									"    if(pm.response.code === 200) {\r",
+									"        var data = JSON.parse(responseBody);\r",
+									"        pm.collectionVariables.set(\"token\", data.access);\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "vidhaan",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cases",
+			"item": [
+				{
+					"name": "get case list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/file_petition/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"file_petition",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Petition",
+			"item": [
+				{
+					"name": "Get Petition List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/file_petition/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"file_petition",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Petition",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"id\": 1,\r\n            \"case_type\": \"CIVIL MISCELLEANOUS APPEAL\",\r\n            \"case_category\": \"Indirect Taxes Matters\",\r\n            \"special_category\": null,\r\n            \"court\": \"DISTRICT_COURT\",\r\n            \"state\": null,\r\n            \"district\": null,\r\n            \"petitioner\": [\r\n                1\r\n            ],\r\n            \"respondent\": [\r\n                1\r\n            ],\r\n            \"act\": [\r\n                1\r\n            ]\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/file_petition/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"file_petition",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://vidhaan-api.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"key": "prefix",
+			"value": "api\n",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

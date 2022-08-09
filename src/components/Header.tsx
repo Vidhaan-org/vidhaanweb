@@ -6,14 +6,20 @@ import Button from "./Button"
 import Toggle from "./Toggle"
 import { BsMap } from "react-icons/bs"
 import { AiOutlinePhone, AiOutlineUser } from "react-icons/ai"
+import { useRouter } from "next/router"
 
-const Header = () => {
+const Header = ({
+  setLogin,
+}: {
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
+  const router = useRouter()
   const [darkToggle, setDarkToggle] = useState<boolean>(false)
   return (
-    <div className="flex shadow-md flex-col fixed w-full">
+    <div className="flex z-50 shadow-md flex-col fixed w-full">
       <div className="bg-accent-blue items-center text-white flex justify-between px-7 py-2">
         <div className="flex h-12">
-          <Image src={vidLogo} objectFit="contain" />
+          <Image alt="v" src={vidLogo} objectFit="contain" />
         </div>
         <div className="flex gap-4">
           <Button textColor="text-gray-200" type="transparent">
@@ -28,8 +34,8 @@ const Header = () => {
         </div>
       </div>
       <div className="items-center text-accent-blue bg-white flex justify-between px-7 py-2">
-        <div className="ml-4 flex h-12">
-          <Image src={ugc} objectFit="contain" />
+        <div className="ml-5 flex h-12">
+          <Image alt="f" src={ugc} objectFit="contain" />
         </div>
         <div className="flex text-xl">
           <div className="px-6 gap-1 font-semibold cursor-pointer flex">
@@ -38,7 +44,13 @@ const Header = () => {
           <div className="px-6 items-center gap-1 border-x-2 border-accent-blue font-semibold cursor-pointer flex">
             <AiOutlinePhone /> Contact Us
           </div>
-          <div className="px-6 gap-1 font-semibold cursor-pointer flex">
+          <div
+            onClick={() => {
+              setLogin(true)
+              router.push("/dashboard/home")
+            }}
+            className="px-6 gap-1 font-semibold cursor-pointer flex"
+          >
             <AiOutlineUser /> login
           </div>
         </div>

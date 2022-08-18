@@ -14,7 +14,6 @@ export const BASE_API_URL = "https://vidhaan-api.herokuapp.com"
 export const fetcher = async (url: string, token?: Token) => {
   if (token) {
     const jwtUser = jwt_decode<{ name: string; exp: number }>(token.value)
-    console.log("decoded user", jwtUser)
     const isExpired = dayjs.unix(jwtUser.exp).diff(dayjs()) < 1
     if (isExpired) await token.refresh()
   }

@@ -1,10 +1,12 @@
 import React from "react"
 import { BsChevronRight } from "react-icons/bs"
+import { useGetOptions } from "../../src/api/utils/utils"
 import Button from "../../src/components/Button"
 import PetitionMap from "../../src/components/PetitionMap"
 import Select from "../../src/components/Select"
 
 const FilePetition = () => {
+  const optionQuery = useGetOptions()
   return (
     <div className="flex flex-col relative min-w-full px-16 pt-8">
       <PetitionMap stop="petitioner" />

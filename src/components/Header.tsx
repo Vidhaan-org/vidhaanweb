@@ -1,5 +1,5 @@
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import vidLogo from "../../public/images/logo-md.png"
 import ugc from "../../public/images/ugc-logo-md.png"
 import Button from "./Button"
@@ -8,17 +8,30 @@ import { BsMap } from "react-icons/bs"
 import { AiOutlinePhone, AiOutlineUser } from "react-icons/ai"
 import useAuth from "../auth/auth"
 import Dynamic from "./Dynamic"
+import Link from "next/link"
+import Dialog from "./Dialog"
+import Login from "./Login"
+import { useRouter } from "next/router"
 
 const Header = () => {
-  const { login, user = undefined, logout } = useAuth()
+  const { user = undefined, logout } = useAuth()
   const [darkToggle, setDarkToggle] = useState<boolean>(false)
+  const [isLoginOpen, setLoginOpen] = useState<boolean>(false)
+
   return (
     <Dynamic>
-      <div className="flex z-50 shadow-md flex-col fixed w-full">
+      <Dialog show={isLoginOpen} onClose={() => setLoginOpen(false)}>
+        <div className="min-w-[70vw] flex flex-col justify-center min-h-[70vh]">
+          <Login close={() => setLoginOpen(false)} />
+        </div>
+      </Dialog>
+      <div className="flex z-20 shadow-md flex-col fixed w-full">
         <div className="bg-accent-blue items-center text-white flex justify-between px-7 py-2">
-          <div className="flex h-12">
-            <Image alt="v" src={vidLogo} objectFit="contain" />
-          </div>
+          <Link href="/">
+            <a className="flex cursor-pointer h-12">
+              <Image alt="v" src={vidLogo} objectFit="contain" />
+            </a>
+          </Link>
           <div className="flex gap-4">
             <Button textColor="text-gray-200" type="transparent">
               <BsMap /> Site Map
@@ -48,7 +61,7 @@ const Header = () => {
 
             <button
               onClick={() => {
-                user ? logout() : login("vidhaan", "admin")
+                user ? logout() : setLoginOpen(true)
               }}
               className="px-6 gap-1 font-semibold cursor-pointer flex"
             >

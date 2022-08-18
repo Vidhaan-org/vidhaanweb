@@ -17,7 +17,7 @@ const Button = ({
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   children?: ReactNode
   className?: string
-  width?: "auto" | "min"
+  width?: "auto" | "min" | "full"
 }) => {
   return (
     <button

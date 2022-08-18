@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  BsBell,
-  BsBellFill,
-  BsGear,
-  BsGearFill,
-  BsInfoCircle,
-} from "react-icons/bs"
+import { BsBellFill, BsGearFill, BsInfoCircle } from "react-icons/bs"
 import Button from "../../src/components/Button"
 
 const Home = () => {

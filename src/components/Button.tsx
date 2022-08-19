@@ -3,6 +3,7 @@ import React, { ReactNode } from "react"
 const Button = ({
   type,
   color,
+  submit,
   rounded,
   textColor,
   onClick,
@@ -14,6 +15,7 @@ const Button = ({
   color?: "accent-orange" | "accent-blue"
   rounded?: boolean
   textColor?: string
+  submit?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
   children?: ReactNode
   className?: string
@@ -22,6 +24,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
+      type={submit ? "submit" : "button"}
       className={`${className} px-3 py-1 w-${width} items-center flex gap-1 whitespace-nowrap font-semibold hover:brightness-125 justify-center text-center ${textColor} ${
         type === "transparent"
           ? "bg-none"

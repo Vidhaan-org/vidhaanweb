@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.6.6",
     "@tanstack/react-query": "^4.0.10",
     "@tanstack/react-query-devtools": "^4.0.10",
+    "country-state-city": "^3.0.5",
     "dayjs": "^1.11.5",
     "graphql": "^16.5.0",
     "graphql-request": "^4.3.0",

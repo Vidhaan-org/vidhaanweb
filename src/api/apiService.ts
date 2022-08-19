@@ -21,7 +21,8 @@ export const fetcher = async (url: string, token?: Token) => {
   try {
     const customHeaders = new Headers()
     customHeaders.append("Content-Type", "application/json")
-    if (token) customHeaders.append("Authorization", `Bearer ${token}`)
+    if (token?.value)
+      customHeaders.append("Authorization", `Bearer ${token?.value}`)
     const res = await fetch(url, {
       headers: customHeaders,
     })

@@ -11,8 +11,10 @@ import {
 import { TbChevronRight, TbLogout } from "react-icons/tb"
 import { useRouter } from "next/router"
 import Dynamic from "./Dynamic"
+import useAuth from "../auth/auth"
 
 const SideNav = () => {
+  const { logout } = useAuth()
   return (
     <Dynamic>
       <div className="flex pt-36 flex-col px-4 py-8 bg-accent-50 z-10 h-screen">
@@ -47,7 +49,7 @@ const SideNav = () => {
             <BsGear />
             <div className="text-gray-800 whitespace-nowrap">Settings</div>
           </NavItem>
-          <NavItem path="/logout">
+          <NavItem path="/logout" onClick={() => logout()}>
             <TbLogout />
             <div className="text-gray-800 whitespace-nowrap">Logout</div>
           </NavItem>
@@ -60,15 +62,18 @@ const SideNav = () => {
 const NavItem = ({
   children,
   path = "",
+  onClick,
 }: {
   children: React.ReactNode
   path?: string
+  onClick?: () => void
 }) => {
   const router = useRouter()
   return (
-    <div
+    <button
       onClick={() => {
-        router.push(`/dashboard${path}`)
+        if (path) router.push(`/dashboard${path}`)
+        if (onClick) onClick()
       }}
       className={`group flex cursor-default items-center w-full font-semibold rounded-lg py-4 text-lg px-7 justify-between text-accent-blue ${
         path && router.route.includes(`/dashboard${path}`)
@@ -84,7 +89,7 @@ const NavItem = ({
             : "opacity-0"
         } group-hover:opacity-100`}
       />
-    </div>
+    </button>
   )
 }
 

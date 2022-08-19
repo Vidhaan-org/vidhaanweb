@@ -19,8 +19,10 @@ const Select = ({
       <select
         name={name}
         id={id}
+        placeholder={"select"}
         className="appearance-none py-1 w-full line-clamp-1 bg-transparent pl-2 pr-8 outline-none"
       >
+        <option value="">select</option>
         {options?.map((option) => {
           if (typeof option == "string")
             return (

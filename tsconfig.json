@@ -19,6 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "auth/*.tsx",
+    "auth/*.ts",
     "src/components/graphs/LineChart.jsx"
   ],
   "exclude": ["node_modules"]

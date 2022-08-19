@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  BsBell,
-  BsBellFill,
-  BsGear,
-  BsGearFill,
-  BsInfoCircle,
-} from "react-icons/bs"
+import { BsBellFill, BsGearFill, BsInfoCircle } from "react-icons/bs"
 import Button from "../../src/components/Button"
 import AreaChart from "../../src/components/graphs/AreaChart"
 import LineChart from "../../src/components/graphs/LineChart"

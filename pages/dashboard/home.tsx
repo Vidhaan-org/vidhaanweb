@@ -1,6 +1,8 @@
 import React from "react"
 import { BsBellFill, BsGearFill, BsInfoCircle } from "react-icons/bs"
 import Button from "../../src/components/Button"
+import AreaChart from "../../src/components/graphs/AreaChart"
+import LineChart from "../../src/components/graphs/LineChart"
 
 const Home = () => {
   return (
@@ -54,12 +56,14 @@ const Home = () => {
         </Button>
       </div>
       <div className="w-full mb-8 h-full grid gap-5 grid-cols-4">
-        <div className="col-span-2 bg-gray-300 rounded-xl"></div>
-        <div className="col-span-2 row-span-2 bg-gray-300 rounded-xl"></div>
+        <div className="col-span-2 p-3 flex flex-col items-center justify-center bg-white shadow-2xl shadow-[#0005] z-10 rounded-xl">
+          <LineChart />
+        </div>
+        <div className="col-span-2 row-span-2 bg-gray-300 z-10 rounded-xl"></div>
         <Button
           type="fill"
           width="auto"
-          className="justify-center opacity-60"
+          className="justify-center z-10 opacity-60"
           color="accent-blue"
         >
           <div className="flex flex-col items-center gap-4 text-xl">
@@ -70,10 +74,10 @@ const Home = () => {
         <Button
           type="fill"
           width="auto"
-          className="justify-center opacity-60"
+          className="justify-center z-10 opacity-60"
           color="accent-blue"
         >
-          <div className="flex flex-col items-center gap-4 text-xl">
+          <div className="flex flex-col items-center my-6 gap-4 text-xl">
             <BsBellFill size={60} />
             <div className="">Notifications &amp; Deadlines</div>
           </div>

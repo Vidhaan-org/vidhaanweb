@@ -10,17 +10,17 @@ export const useGetCasesAll = () => {
   })
 }
 
-export const useGetCaseByID = (id: string) => {
+export const useGetCaseByCNR = (id: string) => {
   const { token } = useAuth()
   return useQuery(
     [`case-${id}`, token],
-    (): Promise<Case[]> => {
-      return fetcher(`${BASE_API_URL}/case/details/`, token)
-    },
-    {
-      select(data) {
-        return data.filter((item) => item.id === id)[0]
-      },
+    (): Promise<Case> => {
+      return fetcher(`${BASE_API_URL}/case/details/${id}`, token)
     }
+    // {
+    //   select(data) {
+    //     return data.filter((item) => item.id === id)[0]
+    //   },
+    // }
   )
 }

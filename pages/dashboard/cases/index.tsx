@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useRouter } from "next/router"
 import React from "react"
 import { BsPin, BsPinAngleFill, BsSearch } from "react-icons/bs"
@@ -13,8 +14,8 @@ const Cases = () => {
   if (isLoading) return <Loading />
   if (isSuccess)
     return (
-      <div className="flex px-10 w-full h-full flex-col">
-        <div className="flex mt-14 mx-4 mb-16 h-full flex-col">
+      <div className="flex px-10 w-full h-auto flex-col">
+        <div className="flex mt-14 mx-4 mb-16 h-auto flex-col">
           <div className="flex gap-4">
             <div className="flex bg-gray-200 rounded-md text-gray-500 items-center gap-3 px-3 py-2 text-lg border-gray-300 border-2">
               <BsSearch />
@@ -26,12 +27,6 @@ const Cases = () => {
                 className="bg-transparent outline-none min-w-[30vw]"
               />
             </div>
-            {/* <Button type="fill" color="accent-orange">
-          <div className="items-center flex gap-2">
-            <BsSearch />
-            <div className="">Search</div>
-          </div>
-        </Button> */}
           </div>
           <div className="grid gap-7 grid-cols-2 mt-5">
             <div className="flex  gap-4 flex-col">
@@ -115,14 +110,15 @@ const TableRow = ({ caseData }: { caseData: Case }) => {
         </div>
       </div>
       <div className="grid grid-cols-3 items-center gap-3">
-        <Button
-          type="fill"
-          color="accent-blue"
-          className="col-span-2 opacity-60"
-          onClick={() => router.push(`/dashboard/cases/${caseData.id}`)}
-        >
-          <div className="w-full text-center">View Details</div>
-        </Button>
+        <Link href={`/dashboard/cases/${caseData.cnr_number}`}>
+          <Button
+            type="fill"
+            color="accent-blue"
+            className="col-span-2 opacity-60"
+          >
+            <div className="w-full text-center">View Details</div>
+          </Button>
+        </Link>
         <BsPinAngleFill className="text-xl ml-auto mr-8 hover:text-red-400 text-gray-500" />
       </div>
     </div>

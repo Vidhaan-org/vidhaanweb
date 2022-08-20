@@ -47,7 +47,7 @@ const Login = ({ close }: { close: () => void }) => {
             placeholder="Password"
           />
           <div className="w-full shadow-[#00197030] shadow-lg flex">
-            <Button submit type="fill" width="full" color="accent-blue">
+            <Button type="fill" submit width="full" color="accent-blue">
               <div className="py-1">Login</div>
             </Button>
           </div>

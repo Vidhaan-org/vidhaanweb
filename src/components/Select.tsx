@@ -8,17 +8,16 @@ const Select = ({
   options,
   className,
 }: {
-  name: string
+  name?: string
   options?: string[] | { name: string; value: string }[]
   className?: string
 }) => {
-  const { register } = useForm()
   return (
     <div
       className={`${className} relative w-full border-2 overflow-hidden border-gray-200 rounded-md group`}
     >
       <select
-        {...register(name)}
+        name={name}
         className="appearance-none py-1 w-full line-clamp-1 bg-transparent pl-2 pr-8 outline-none"
       >
         <option value="">select</option>

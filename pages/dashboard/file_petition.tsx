@@ -559,11 +559,11 @@ const FilePetition = () => {
               </div>
             </div>
           </div>
-          <div className="absolute justify-between -translate-x-16 px-8 bottom-8 flex w-full">
+          <div className="absolute gap-4 justify-end -translate-x-16 px-8 bottom-8 flex w-full">
             <Button
               type="fill"
               color="accent-orange"
-              className={`shadow-lg mr-auto ${
+              className={`shadow-lg ${
                 tab === "details" ? "hidden" : ""
               } shadow-gray-300`}
               onClick={() => {
@@ -583,7 +583,7 @@ const FilePetition = () => {
             <Button
               type="fill"
               color="accent-orange"
-              className={`shadow-lg ml-auto ${
+              className={`shadow-lg ${
                 tab === "act" ? "hidden" : ""
               } shadow-gray-300`}
               onClick={() => {
@@ -604,7 +604,7 @@ const FilePetition = () => {
               type="fill"
               color="accent-orange"
               submit
-              className={`shadow-lg ml-auto ${
+              className={`shadow-lg ${
                 tab !== "act" ? "hidden" : ""
               } shadow-gray-300`}
             >

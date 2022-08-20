@@ -1,8 +1,8 @@
 import { Tab } from "@headlessui/react"
 import React from "react"
-import Deadlines from "../../src/components/notifications/Deadlines"
-import Hearings from "../../src/components/notifications/Hearings"
-import Updates from "../../src/components/notifications/Updates"
+import Deadlines from "../../../src/components/notifications/Deadlines"
+import Hearings from "../../../src/components/notifications/Hearings"
+import Updates from "../../../src/components/notifications/Updates"
 
 const Notification = () => {
   return (

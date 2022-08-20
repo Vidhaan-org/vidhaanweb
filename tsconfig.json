@@ -21,7 +21,7 @@
     "**/*.tsx",
     "auth/*.tsx",
     "auth/*.ts",
-    "src/components/graphs/LineChart.jsx"
+    "src/**/*"
   ],
   "exclude": ["node_modules"]
 }

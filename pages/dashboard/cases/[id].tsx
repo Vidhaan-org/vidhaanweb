@@ -1,8 +1,16 @@
+import { useRouter } from "next/router"
 import React, { useState } from "react"
+import { useGetCaseByID } from "../../../src/api/cases/caseService"
 import Button from "../../../src/components/Button"
+import Loading from "../../../src/components/Loading"
 
 const Case = () => {
+  const router = useRouter()
+  const { id } = router.query
+  const { data, isLoading, isSuccess } = useGetCaseByID(id as string)
   const [tab, setTab] = useState<"judgement" | "case">("case")
+
+  if (isLoading) return <Loading />
   return (
     <div className="flex w-full overflow-y-auto h-full flex-col">
       <div className="border-l-8 flex flex-col px-9 py-10 border-accent-blue w-full bg-gray-200">
@@ -19,7 +27,7 @@ const Case = () => {
             <div className="flex gap-2 items-center">
               <div className="">CNR number:</div>
               <div className="rounded-full cursor-default text-red-500 font-semibold px-3 py-1 mr-auto bg-red-200">
-                CGHC01-043756-2019
+                {data?.cnr_number ? data.cnr_number : "null"}
               </div>
             </div>
             <div className="flex gap-2 items-center">

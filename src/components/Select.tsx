@@ -1,37 +1,36 @@
 import React from "react"
+import { useForm, UseFormRegister } from "react-hook-form"
 import { BsChevronDown } from "react-icons/bs"
+import { PetitionFormFields } from "../Types/form"
 
 const Select = ({
   name,
-  id,
   options,
   className,
 }: {
-  name?: string
-  id?: string
+  name: string
   options?: string[] | { name: string; value: string }[]
   className?: string
 }) => {
+  const { register } = useForm()
   return (
     <div
       className={`${className} relative w-full border-2 overflow-hidden border-gray-200 rounded-md group`}
     >
       <select
-        name={name}
-        id={id}
-        placeholder={"select"}
+        {...register(name)}
         className="appearance-none py-1 w-full line-clamp-1 bg-transparent pl-2 pr-8 outline-none"
       >
         <option value="">select</option>
-        {options?.map((option) => {
+        {options?.map((option, index) => {
           if (typeof option == "string")
             return (
-              <option key={option as string} value={option as string}>
+              <option key={index} value={option as string}>
                 {option}
               </option>
             )
           return (
-            <option key={option.value} value={option.value}>
+            <option key={index} value={option.value}>
               {option.name}
             </option>
           )

@@ -8,7 +8,7 @@ export interface OptionResponse {
     "Petition Type": string[]
     "Case Category": string[]
     "Case Status": string[]
-    "Specia lCategory": string[]
+    "Special Category": string[]
     "Notify Type": string[]
     "Track Type": string[]
     "Purpose of Hearing": string[]

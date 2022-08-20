@@ -32,21 +32,18 @@ export const AuthProvider = (props: React.PropsWithChildren<{}>) => {
 
   useEffect(() => {
     const fun = () => {
-      if (typeof window !== "undefined") {
-        const accesstoken = localStorage.getItem("accessToken")
-        if (accesstoken)
-          setToken({
-            value: accesstoken,
-            refresh,
-          })
-        console.log(token, "this from auth")
+      const accesstoken = localStorage.getItem("accessToken")
+      if (accesstoken) {
+        setToken({
+          value: accesstoken,
+          refresh,
+        })
       }
-      if (typeof window !== "undefined") {
-        const user: User | null = localStorage.getItem("user")
-          ? { username: JSON.parse(localStorage.getItem("user") as string) }
-          : null
-        if (user) setUser(user)
-      }
+      console.log(token, "this from auth")
+      const user: User | null = localStorage.getItem("user")
+        ? { username: JSON.parse(localStorage.getItem("user") as string) }
+        : null
+      if (user) setUser(user)
     }
     fun()
   }, [])

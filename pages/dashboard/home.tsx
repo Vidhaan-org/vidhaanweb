@@ -57,7 +57,7 @@ const Home = () => {
       </div>
       <div className="w-full mb-8 h-full grid gap-5 grid-cols-4">
         <div className="col-span-2 p-3 flex flex-col items-center justify-center bg-white shadow-2xl shadow-[#0005] z-10 rounded-xl">
-          <LineChart />
+          {/* <LineChart /> */}
         </div>
         <div className="col-span-2 row-span-2 bg-gray-300 z-10 rounded-xl"></div>
         <Button

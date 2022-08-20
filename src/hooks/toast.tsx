@@ -108,7 +108,7 @@ const Toast = ({
     case "info":
       return (
         <Link href={src}>
-          <a className="toast text-accent-orange">
+          <a className="toast crimson text-accent-orange">
             <BsInfoCircle className="mr-1" />
             <div className="mx-1">{toast.text}</div>
           </a>
@@ -118,7 +118,7 @@ const Toast = ({
     case "alert":
       return (
         <Link href={src}>
-          <a className="toast text-white">
+          <a className="toast white text-white">
             <MdAddAlert className="mr-1" />
             <div className="mx-1">{toast.text}</div>
           </a>
@@ -128,7 +128,7 @@ const Toast = ({
     case "error":
       return (
         <Link href={src}>
-          <a className="toast text-red-500">
+          <a className="toast red text-red-500">
             <MdError className="mr-1" />
             <div className="mx-1">{toast.text}</div>
           </a>
@@ -138,7 +138,7 @@ const Toast = ({
     default:
       return (
         <Link href={src}>
-          <a className="toast text-blue-500">
+          <a className="toast blue text-blue-500">
             <BsCheckCircleFill className="mr-1" />
             <div>{toast.text}</div>
           </a>

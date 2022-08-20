@@ -8,7 +8,7 @@ import useAuth from "../auth/auth"
 import { ToastLife, useToast } from "../hooks/toast"
 
 const Login = ({ close }: { close: () => void }) => {
-  const { register, handleSubmit } = useForm<{
+  const { register, handleSubmit, reset } = useForm<{
     username: string
     password: string
   }>()
@@ -19,6 +19,7 @@ const Login = ({ close }: { close: () => void }) => {
       if (res.status === 200) {
         close()
       }
+      reset()
     })
   }
   return (

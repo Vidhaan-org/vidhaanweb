@@ -38,7 +38,7 @@ interface respondent {
   respondent_relation: string
   respondent_father: string
   respondent_gender: string
-  respondent_address: ""
+  respondent_address: string
   respondent_country: string
   petitioner_city: string
   petitioner_email: string

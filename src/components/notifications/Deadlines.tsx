@@ -7,6 +7,7 @@ import {
 import { useGetNotificationByType } from "../../api/notifications/notificationService"
 import { stateCityJson } from "../../api/utils/utilService"
 import Button from "../Button"
+import Error from "../Error"
 import Loading from "../Loading"
 import Select from "../Select"
 
@@ -57,11 +58,12 @@ const Deadlines = () => {
             <div className="">Due Date</div>
           </div>
           {data.map((item) => (
-            <TableRow data={item} />
+            <TableRow key={item.id} data={item} />
           ))}
         </div>
       </div>
     )
+  return <Error />
 }
 
 const TableRow = ({ data }: { data: Notification }) => {

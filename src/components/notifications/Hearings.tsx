@@ -60,7 +60,7 @@ const Hearings = () => {
             <div className="">Date</div>
           </div>
           {data.map((item) => (
-            <TableRow data={item} />
+            <TableRow key={item.id} data={item} />
           ))}
         </div>
       </div>

@@ -18,7 +18,7 @@ const Updates = () => {
     return (
       <div className="flex flex-col h-full gap-3">
         {data?.map((item) => (
-          <Update data={item} />
+          <Update key={item.id} data={item} />
         ))}
       </div>
     )

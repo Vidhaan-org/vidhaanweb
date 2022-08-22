@@ -14,7 +14,7 @@ const Notification = () => {
             <TabButton buttonText="Case updates" />
             <TabButton buttonText="Deadlines" />
           </Tab.List>
-          <Tab.Panels className="h-full overflow-auto border-white rounded-b-xl border-4 bg-white mt-1 gray-scroll flex-1 flex-col p-3 justify-between">
+          <Tab.Panels className="h-full overflow-auto border-white rounded-b-xl border-4 bg-white mt-1 gray-scroll flex flex-col p-3 justify-between">
             <Tab.Panel>
               <Hearings />
             </Tab.Panel>

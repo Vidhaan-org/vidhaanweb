@@ -10,7 +10,7 @@ import Select from "../Select"
 
 const Hearings = () => {
   const { isLoading, isSuccess, data } = useGetNotificationByType(
-    NotificationType.docDeadline
+    NotificationType.hearingAll
   )
   console.log(data)
   if (isLoading) return <Loading />

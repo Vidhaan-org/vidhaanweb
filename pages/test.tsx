@@ -5,7 +5,7 @@ const Test = () => {
   return (
     <div className="flex w-full h-screen flex-col justify-center items-center">
       <div className="">
-        <ProgressSemiCircle />
+        <ProgressSemiCircle percent={10} />
       </div>
     </div>
   )

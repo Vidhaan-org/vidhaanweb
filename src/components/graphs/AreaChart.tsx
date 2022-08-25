@@ -2,6 +2,7 @@ import {
   area,
   axisBottom,
   axisLeft,
+  line,
   max,
   scaleBand,
   scaleLinear,
@@ -57,11 +58,17 @@ const AreaChart = () => {
           `translate(${12}, ${margin.bottom + dimensions.height})`
         )
         .call(xAxis)
+        .attr("stroke-width", 2)
+
       selection
         .append("g")
-        .attr("transform", `translate(${margin.left - 1}, -${margin.bottom})`)
+        .attr(
+          "transform",
+          `translate(${margin.left - 1}, -${margin.bottom - 4})`
+        )
         // .attr("transform", `translate(${0}, 0)`)
         .call(yAxis)
+        .attr("stroke-width", 2)
 
       selection
         .append("g")
@@ -70,7 +77,22 @@ const AreaChart = () => {
         .style("position", "relative")
         .datum(data)
         .attr("d", lineArea)
-        .attr("fill", "orange")
+        .attr("fill", "#FF003233")
+
+      selection
+        .append("g")
+        .append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "#FF8600")
+        .attr("stroke-width", 4)
+        .attr(
+          "d",
+          line<{ name: string; units: number }>()
+            .x((d) => x(d.name)!)
+            .y((d) => y(d.units))
+        )
+        .attr("transform", `translate(${margin.left}, -${margin.bottom})`)
 
       selection
         .append("g")
@@ -82,8 +104,9 @@ const AreaChart = () => {
         .attr("cx", (d) => x(d.name)!)
         .attr("cy", (d) => y(d.units))
         .attr("r", 7)
-        .attr("fill", "none")
-        .attr("stroke", "blue")
+        .attr("fill", "#fff")
+        .attr("stroke", "#FF8600")
+        .attr("stroke-width", 3)
     }
   }
 

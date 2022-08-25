@@ -4,14 +4,14 @@ import vidLogo from "../../public/images/logo-md.png"
 import ugc from "../../public/images/ugc-logo-md.png"
 import Button from "./Button"
 import Toggle from "./Toggle"
-import { BsMap } from "react-icons/bs"
+import { BsGlobe, BsMap } from "react-icons/bs"
 import { AiOutlinePhone, AiOutlineUser } from "react-icons/ai"
 import useAuth from "../auth/auth"
 import Dynamic from "./Dynamic"
 import Link from "next/link"
 import Dialog from "./Dialog"
 import Login from "./Login"
-import { useRouter } from "next/router"
+import SelectOptions from "./SelectOptions"
 
 const Header = () => {
   const { user = undefined, logout } = useAuth()
@@ -40,6 +40,12 @@ const Header = () => {
               <Button type="outline">+A</Button>
               <Button type="outline">A</Button>
               <Button type="outline">-A</Button>
+            </div>
+            <div className="flex font-bold items-center text-lg gap-2">
+              <BsGlobe />
+              <select className="bg-transparent focus:outline-none pr-2">
+                <SelectOptions selected data={["English", "Hindi"]} />
+              </select>
             </div>
             <Toggle
               setToggleEnabled={setDarkToggle}

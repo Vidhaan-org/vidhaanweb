@@ -13,7 +13,12 @@ import {
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { useWindowSize } from "../../hooks/windowSize"
 
-const AreaChart = () => {
+export interface AreaCoordinate {
+  absicssa: string
+  ordinate: number
+}
+
+const AreaChart = ({ data }: { data: AreaCoordinate[] }) => {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const divRef = useRef<HTMLDivElement | null>(null)
   const update = useRef(false)
@@ -27,17 +32,16 @@ const AreaChart = () => {
     width: divRef.current ? divRef.current.offsetWidth : 0,
     height: divRef.current ? divRef.current.offsetHeight : 0,
   })
-  const [data, setData] = useState(initalData)
 
   const drawChart = () => {
     const margin = { top: 50, right: 30, bottom: 30, left: 60 }
     let x = scaleBand()
-      .domain(data.map((d) => d.name))
+      .domain(data.map((d) => d.absicssa))
       .range([0, dimensions.width])
     // .padding(0.05)
 
     let y = scaleLinear()
-      .domain([0, max(data, (d) => d.units + 30)!])
+      .domain([0, max(data, (d) => d.ordinate + 30)!])
       .range([dimensions.height, 0])
 
     if (!selection) {
@@ -46,10 +50,10 @@ const AreaChart = () => {
       const xAxis = axisBottom(x)
       const yAxis = axisLeft(y)
 
-      const lineArea = area<{ name: string; units: number }>()
-        .x((d) => x(d.name)!)
+      const lineArea = area<{ absicssa: string; ordinate: number }>()
+        .x((d) => x(d.absicssa)!)
         .y0(y(0))
-        .y1((d) => y(d.units))
+        .y1((d) => y(d.ordinate))
 
       selection
         .append("g")
@@ -88,9 +92,9 @@ const AreaChart = () => {
         .attr("stroke-width", 4)
         .attr(
           "d",
-          line<{ name: string; units: number }>()
-            .x((d) => x(d.name)!)
-            .y((d) => y(d.units))
+          line<{ absicssa: string; ordinate: number }>()
+            .x((d) => x(d.absicssa)!)
+            .y((d) => y(d.ordinate))
         )
         .attr("transform", `translate(${margin.left}, -${margin.bottom})`)
 
@@ -101,8 +105,8 @@ const AreaChart = () => {
         .data(data)
         .enter()
         .append("circle")
-        .attr("cx", (d) => x(d.name)!)
-        .attr("cy", (d) => y(d.units))
+        .attr("cx", (d) => x(d.absicssa)!)
+        .attr("cy", (d) => y(d.ordinate))
         .attr("r", 7)
         .attr("fill", "#fff")
         .attr("stroke", "#FF8600")
@@ -138,7 +142,7 @@ const AreaChart = () => {
       selectAll("g").remove()
     } else update.current = true
     drawChart()
-  }, [dimensions])
+  }, [dimensions, data])
 
   return (
     <div
@@ -151,30 +155,3 @@ const AreaChart = () => {
 }
 
 export default AreaChart
-
-const initalData = [
-  {
-    name: "foo",
-    units: 32,
-  },
-  {
-    name: "bar",
-    units: 67,
-  },
-  {
-    name: "baz",
-    units: 81,
-  },
-  {
-    name: "hoge",
-    units: 38,
-  },
-  {
-    name: "piyo",
-    units: 28,
-  },
-  {
-    name: "hogera",
-    units: 59,
-  },
-]

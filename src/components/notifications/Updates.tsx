@@ -13,19 +13,27 @@ const Updates = () => {
     NotificationType.CaseUpdate
   )
   console.log(data)
-  if (isLoading) return <Loading />
-  if (isSuccess)
-    return (
-      <div className="flex flex-col h-full gap-3">
-        {data?.map((item) => (
+  // if (isLoading) return <Loading />
+  // if (isSuccess)
+  return (
+    <div className="flex flex-col h-full gap-3">
+      {/* {data?.map((item) => (
           <Update key={item.id} data={item} />
-        ))}
-      </div>
-    )
+        ))} */}
+      <Update />
+      <Update />
+      <Update />
+      <Update />
+      <Update />
+      <Update />
+      <Update />
+      <Update />
+    </div>
+  )
   return <Error />
 }
 
-const Update = ({ data }: { data: Notification }) => {
+const Update = ({ data }: { data?: Notification }) => {
   return (
     <div className="border-l-8 flex flex-col px-9 py-10 border-accent-blue w-full bg-gray-100">
       <div className="text-2xl items-center flex gap-2 text-accent-blue font-bold">

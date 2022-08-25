@@ -1,0 +1,11 @@
+.pie {
+  width: 300px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.pie circle {
+  fill: none;
+  /* stroke: gold; */
+  stroke-width: 32;
+}

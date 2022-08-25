@@ -12,6 +12,7 @@ import { TbChevronRight, TbLogout } from "react-icons/tb"
 import { useRouter } from "next/router"
 import Dynamic from "./Dynamic"
 import useAuth from "../auth/auth"
+import { AiOutlineUser } from "react-icons/ai"
 
 const SideNav = () => {
   const { logout } = useAuth()
@@ -22,6 +23,10 @@ const SideNav = () => {
           <NavItem path="/home">
             <FiHome />
             <div className="text-gray-800 whitespace-nowrap">Home</div>
+          </NavItem>
+          <NavItem path="/users">
+            <AiOutlineUser />
+            <div className="text-gray-800 whitespace-nowrap">Users</div>
           </NavItem>
           <NavItem path="/cases">
             <BsClipboard />
@@ -49,7 +54,7 @@ const SideNav = () => {
             <BsGear />
             <div className="text-gray-800 whitespace-nowrap">Settings</div>
           </NavItem>
-          <NavItem path="/logout" onClick={() => logout()}>
+          <NavItem path="/" onClick={() => logout()}>
             <TbLogout />
             <div className="text-gray-800 whitespace-nowrap">Logout</div>
           </NavItem>

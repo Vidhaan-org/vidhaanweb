@@ -1,40 +1,42 @@
-import CanvasJS from "canvasjs"
 import React, { useState } from "react"
 import { BsCircleFill } from "react-icons/bs"
 import CirleChart from "../../src/components/CircleChart"
-import AreaChart from "../../src/components/graphs/AreaChart"
+import AreaChart, {
+  AreaCoordinate,
+} from "../../src/components/graphs/AreaChart"
 import ProgressSemiCircle from "../../src/components/ProgressSemiCircle"
-import CanvasJSReact from "../../src/lib/canvasjs.react"
+import SelectOptions from "../../src/components/SelectOptions"
 
 const Analytics = () => {
-  const [options, setOptions] = useState({
-    title: {
-      text: "Basic Column Chart in React",
-    },
-    data: [
-      {
-        type: "column",
-        dataPoints: [
-          { label: "Apple", y: 10 },
-          { label: "Orange", y: 15 },
-          { label: "Banana", y: 25 },
-          { label: "Mango", y: 30 },
-          { label: "Grape", y: 28 },
-        ],
-      },
-    ],
-  })
+  const [chartData, setChartData] = useState<AreaCoordinate[]>(initalData)
   return (
     <div className="flex flex-col gap-5 p-8 w-full">
       <div className="flex flex-col gap-5 h-[80vh]">
         <div className="min-w-full h-full grid gap-5 grid-cols-3">
           <div className="col-span-2 bg-white rounded-xl row-span-2 shadow-xl">
             <div className="flex h-full flex-col">
-              <h3 className="text-lg text-accent-blue font-bold p-4">
-                Total Running Cases
-              </h3>
+              <div className="flex justify-between items-center p-4">
+                <h3 className="text-lg text-accent-blue font-bold">
+                  Total Running Cases
+                </h3>
+                <div className="flex items-center gap-1 text-lg">
+                  <BsCircleFill color="#FF8600" />
+                  <select className="pr-1 mr-6 bg-transparent">
+                    <SelectOptions
+                      data={["jsdf", "sldfj", "lsdfjl", "lsdjf"]}
+                    />
+                  </select>
+                  <BsCircleFill color="#801DF7" />
+                  <select className="pr-1 bg-transparent">
+                    <SelectOptions
+                      data={["jsdf", "sldfj", "lsdfjl", "lsdjf"]}
+                    />
+                  </select>
+                </div>
+              </div>
+
               <div className="flex flex-col h-full">
-                <AreaChart />
+                <AreaChart data={chartData} />
               </div>
             </div>
           </div>
@@ -119,3 +121,46 @@ const Analytics = () => {
 }
 
 export default Analytics
+
+const initalData = [
+  {
+    absicssa: "foo",
+    ordinate: 32,
+  },
+  {
+    absicssa: "bar",
+    ordinate: 67,
+  },
+  {
+    absicssa: "baz",
+    ordinate: 81,
+  },
+  {
+    absicssa: "hoge",
+    ordinate: 38,
+  },
+  {
+    absicssa: "piyo",
+    ordinate: 28,
+  },
+  {
+    absicssa: "hogera",
+    ordinate: 59,
+  },
+  {
+    absicssa: "baslkdfjz",
+    ordinate: 81,
+  },
+  {
+    absicssa: "hoglskdfe",
+    ordinate: 38,
+  },
+  {
+    absicssa: "psdflkl",
+    ordinate: 28,
+  },
+  {
+    absicssa: "hogerkldfja",
+    ordinate: 59,
+  },
+]

@@ -1,8 +1,12 @@
 import { useRouter } from "next/router"
 import React from "react"
 import { BsPinAngleFill } from "react-icons/bs"
-import { NotificationType } from "../../api/notifications/notification.d"
+import {
+  Notification,
+  NotificationType,
+} from "../../api/notifications/notification.d"
 import { useGetNotificationByType } from "../../api/notifications/notificationService"
+import { stateCityJson } from "../../api/utils/utilService"
 import Button from "../Button"
 import Error from "../Error"
 import Loading from "../Loading"
@@ -10,7 +14,7 @@ import Select from "../Select"
 
 const Hearings = () => {
   const { isLoading, isSuccess, data } = useGetNotificationByType(
-    NotificationType.docDeadline
+    NotificationType.hearingAll
   )
   console.log(data)
   if (isLoading) return <Loading />
@@ -24,23 +28,21 @@ const Hearings = () => {
             </div>
             <div className="grid grid-cols-3 gap-2">
               <div className="flex flex-col gap-1">
-                <div className="text-gray-600 text-sm font-semibold">
-                  Case Status
-                </div>
-                <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
+                <div className="text-gray-600 text-sm font-semibold">state</div>
+                <Select options={stateCityJson.states} />
               </div>
-              <div className="flex flex-col gap-1">
+              {/* <div className="flex flex-col gap-1">
                 <div className="text-gray-600 text-sm font-semibold">Court</div>
                 <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
               </div>
               <div className="flex flex-col gap-1">
                 <div className="text-gray-600 text-sm font-semibold">Year</div>
                 <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="flex gap-4 ml-auto w-[50%] flex-col">
-            <div className="text-xl font-semibold text-accent-blue">
+            {/* <div className="text-xl font-semibold text-accent-blue">
               Sort By
             </div>
             <div className="">
@@ -48,7 +50,7 @@ const Hearings = () => {
                 <div className="text-gray-600 text-sm font-semibold">Date</div>
                 <Select options={["lksdjf", "lskdjfl", "lsdkfjl"]} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex mt-10 flex-col w-full bg-gray-100 rounded-md border border-gray-300">
@@ -57,20 +59,16 @@ const Hearings = () => {
             <div className="">Case Name</div>
             <div className="">Date</div>
           </div>
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
+          {data.map((item) => (
+            <TableRow key={item.id} data={item} />
+          ))}
         </div>
       </div>
     )
   return <Error />
 }
 
-const TableRow = () => {
+const TableRow = ({ data }: { data: Notification }) => {
   const router = useRouter()
   return (
     <div className="grid grid-cols-5 p-2 gap-4 items-center group hover:bg-gray-200">

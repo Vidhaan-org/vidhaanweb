@@ -1,21 +1,31 @@
 import React from "react"
+import {
+  Notification,
+  NotificationType,
+} from "../../api/notifications/notification.d"
+import { useGetNotificationByType } from "../../api/notifications/notificationService"
 import Button from "../Button"
+import Error from "../Error"
+import Loading from "../Loading"
 
 const Updates = () => {
-  return (
-    <div className="flex flex-col h-full gap-3">
-      <Update />
-      <Update />
-      <Update />
-      <Update />
-      <Update />
-      <Update />
-      <Update />
-    </div>
+  const { data, isLoading, isSuccess } = useGetNotificationByType(
+    NotificationType.CaseUpdate
   )
+  console.log(data)
+  if (isLoading) return <Loading />
+  if (isSuccess)
+    return (
+      <div className="flex flex-col h-full gap-3">
+        {data?.map((item) => (
+          <Update key={item.id} data={item} />
+        ))}
+      </div>
+    )
+  return <Error />
 }
 
-const Update = () => {
+const Update = ({ data }: { data: Notification }) => {
   return (
     <div className="border-l-8 flex flex-col px-9 py-10 border-accent-blue w-full bg-gray-100">
       <div className="text-2xl items-center flex gap-2 text-accent-blue font-bold">

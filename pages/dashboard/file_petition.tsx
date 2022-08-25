@@ -11,6 +11,7 @@ import Dialog from "../../src/components/Dialog"
 import { PetitionFormFields } from "../../src/Types/form"
 import { useFilePetition } from "../../src/api/petition/petitionService"
 import { sendJsonData } from "../../src/api/apiService"
+import SelectOptions from "../../src/components/SelectOptions"
 
 const FilePetition = () => {
   const optionQuery = useGetOptions()
@@ -622,21 +623,6 @@ const FilePetition = () => {
     <div className="flex w-full h-full items-center justify-center">
       Something went wrong
     </div>
-  )
-}
-
-const SelectOptions = ({ data }: { data: string[] }) => {
-  return (
-    <>
-      <option value="">select</option>
-      {data?.map((option, index) => {
-        return (
-          <option key={index} value={option as string}>
-            {option}
-          </option>
-        )
-      })}
-    </>
   )
 }
 

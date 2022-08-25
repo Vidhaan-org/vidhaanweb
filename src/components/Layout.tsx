@@ -8,7 +8,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const { user } = useAuth()
   const router = useRouter()
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen h-screen bg-gray-50 overflow-hidden">
       <Header />
       <div className="flex overflow-auto h-[100%] w-full">
         {user && router.route.includes("/dashboard/") && <SideNav />}

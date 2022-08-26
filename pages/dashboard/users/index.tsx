@@ -1,11 +1,15 @@
 import Link from "next/link"
 import React from "react"
 import { AiOutlinePlus, AiOutlineUser } from "react-icons/ai"
-import { BsPlus } from "react-icons/bs"
+import { User } from "../../../src/auth/User"
 import Button from "../../../src/components/Button"
 import ColorTag from "../../../src/components/ColorTag"
+import Error from "../../../src/components/Error"
 
 const ManageUsers = () => {
+  // const { data, isLoading, isSuccess } = useGetUsers()
+  // if (isLoading) return <Loading />
+  // if (isSuccess)
   return (
     <div className="h-auto min-h-full flex flex-col w-full px-10 pb-4 pt-14">
       <div className="flex gap-4 h-min">
@@ -31,36 +35,59 @@ const ManageUsers = () => {
           <div className="">Expertise</div>
           <div className="">User Type</div>
         </div>
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
+        {/* {data.map((user) => (
+            <TableRow data={user} />
+          ))} */}
+        <TableRow
+          data={{
+            first_name: "Ram",
+            last_name: "Prashad",
+            id: 1,
+            tab_permission: ["lawyer"],
+            user_type: "Advocate",
+            username: "vidhaan23",
+          }}
+        />
+        <TableRow
+          data={{
+            first_name: "Rahul",
+            last_name: "Sharma",
+            id: 2,
+            tab_permission: ["UGC Executive"],
+            user_type: "Super Admin",
+            username: "ashok23",
+          }}
+        />
       </div>
     </div>
   )
+  return <Error />
 }
 
-const TableRow = () => {
+const TableRow = ({ data }: { data?: User }) => {
   return (
     <div className="grid group px-4 py-3 border-b mx-2 gap-4 border-gray-400 grid-cols-4">
       <div className="group-hover:text-black text-gray-800 font-semibold">
-        Anil Mishra
+        {data?.first_name + " " + data?.last_name}
+        {/* Arpit Mehta */}
       </div>
       <div className="flex gap-1 no-scrollbar w-full overflow-x-auto items-center">
-        <ColorTag color="blue" text="Role 1" />
-        <ColorTag color="blue" text="Role 2" />
-        <ColorTag color="blue" text="Role 3" />
+        {data?.tab_permission?.map((per) => (
+          <ColorTag color="blue" text={per} />
+        ))}
       </div>
       <div className="flex gap-1 no-scrollbar w-full overflow-x-auto items-center">
-        <ColorTag color="red" text="Role 1" />
-        <ColorTag color="blue" text="Role 2" />
-        <ColorTag color="yello" text="Role 3" />
+        <ColorTag color="red" text="Contempt" />
+        <ColorTag color="blue" text="Civil" />
+        <ColorTag color="yello" text="Writ" />
       </div>
       <div className="flex justify-between items-center">
-        <div className="font-semibold">Org member</div>
-        <button className="bg-[#6B7AAC] text-white rounded-md font-semibold text-sm px-3 py-1">
-          View Details
-        </button>
+        <div className="font-semibold">{data?.user_type}</div>
+        <Link href={`/dashboard/users/sldjk`}>
+          <button className="bg-[#6B7AAC] text-white rounded-md font-semibold text-sm px-3 py-1">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   )

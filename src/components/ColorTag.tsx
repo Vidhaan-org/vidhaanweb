@@ -10,8 +10,12 @@ const ColorTag = ({
   return (
     <div
       className={`${
-        color === "blue" ? "bg-[#8694c0]" : "bg-red-400"
-      } cursor-default whitespace-nowrap rounded-full text-white px-3 py-0.5 text-sm font-semibold`}
+        color === "blue"
+          ? "bg-[#8694c0]"
+          : color === "yello"
+          ? "bg-yellow-400"
+          : "bg-red-400"
+      } cursor-default whitespace-nowrap rounded-full h-min text-white px-3 py-0.5 text-sm font-semibold`}
     >
       {text}
     </div>

@@ -11,16 +11,62 @@ import {
   Selection,
 } from "d3"
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
+import { BsCircleFill } from "react-icons/bs"
 import { useWindowSize } from "../../hooks/windowSize"
+import SelectOptions from "../SelectOptions"
+
+const initalData = [
+  {
+    absicssa: "foo",
+    ordinate: 32,
+  },
+  {
+    absicssa: "bar",
+    ordinate: 67,
+  },
+  {
+    absicssa: "baz",
+    ordinate: 81,
+  },
+  {
+    absicssa: "hoge",
+    ordinate: 38,
+  },
+  {
+    absicssa: "piyo",
+    ordinate: 28,
+  },
+  {
+    absicssa: "hogera",
+    ordinate: 59,
+  },
+  {
+    absicssa: "baslkdfjz",
+    ordinate: 81,
+  },
+  {
+    absicssa: "hoglskdfe",
+    ordinate: 38,
+  },
+  {
+    absicssa: "psdflkl",
+    ordinate: 28,
+  },
+  {
+    absicssa: "hogerkldfja",
+    ordinate: 59,
+  },
+]
 
 export interface AreaCoordinate {
   absicssa: string
   ordinate: number
 }
 
-const AreaChart = ({ data }: { data: AreaCoordinate[] }) => {
+const AreaChart = ({ data: ini }: { data: AreaCoordinate[] }) => {
   const svgRef = useRef<SVGSVGElement | null>(null)
   const divRef = useRef<HTMLDivElement | null>(null)
+  const [data, setData] = useState(initalData)
   const update = useRef(false)
   const [selection, setSelection] = useState<null | Selection<
     SVGSVGElement | null,
@@ -114,6 +160,15 @@ const AreaChart = ({ data }: { data: AreaCoordinate[] }) => {
     }
   }
 
+  function shuffle() {
+    setData((array) => {
+      const data = array.sort(() => Math.random() - 0.5)
+      console.log(data)
+      return data
+    })
+    rerender()
+  }
+
   useWindowSize(() => {
     if (divRef.current) {
       setDimensions({
@@ -138,17 +193,41 @@ const AreaChart = ({ data }: { data: AreaCoordinate[] }) => {
   }, [])
 
   useEffect(() => {
-    if (update.current) {
-      selectAll("g").remove()
-    } else update.current = true
-    drawChart()
+    rerender()
   }, [dimensions, data])
+
+  const rerender = () => {
+    selectAll("g").remove()
+    drawChart()
+  }
 
   return (
     <div
       ref={divRef}
-      className="h-full flex items-center justify-center w-full"
+      className="h-full flex relative items-center justify-center w-full"
     >
+      <div className="flex absolute -top-4 right-5 items-center gap-1 text-lg">
+        <BsCircleFill color="#FF8600" />
+        <select
+          onChange={() => {
+            shuffle()
+            // rerender()
+          }}
+          className="pr-1 mr-6 bg-transparent"
+        >
+          <SelectOptions selected data={["court", "year", "state"]} />
+        </select>
+        <BsCircleFill color="#801DF7" />
+        <select
+          onChange={() => {
+            shuffle()
+            // rerender()
+          }}
+          className="pr-1 bg-transparent"
+        >
+          <SelectOptions selected data={["year", "court", "state"]} />
+        </select>
+      </div>
       <svg ref={svgRef} height={dimensions.height} width={dimensions.width} />
     </div>
   )

@@ -6,6 +6,8 @@ const sample = [
   { category: "b", quantity: 20 },
   { category: "c", quantity: 89 },
   { category: "d", quantity: 124 },
+  { category: "e", quantity: 80 },
+  { category: "f", quantity: 20 },
 ]
 
 export interface BarCoordinates {
@@ -28,7 +30,7 @@ const BarChart = () => {
     if (typeof window !== "undefined")
       window.addEventListener("resize", () => {
         setDimensions({
-          width: window.innerWidth,
+          width: window.innerWidth - 50,
           height: window.innerHeight,
         })
 
@@ -94,12 +96,12 @@ const BarChart = () => {
     svg
       .append("g")
       .attr("transform", "translate(" + margin.left + ",0)")
-      .call(d3.axisLeft(y))
+      .call(d3.axisLeft(y).ticks(3).tickSize(20))
 
     // Draw bars
     svg
       .append("g")
-      .attr("fill", "#65f0eb")
+      .attr("fill", "#ED7D31")
       .selectAll("rect")
       .data(data)
       .join("rect")

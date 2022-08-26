@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import * as d3 from "d3"
 import geoJson from "./inidaJSON.json"
 
-const IndiaHeatMap = () => {
+const IndiaHeatMap = ({ size }: { size?: number }) => {
   const drawMap = async () => {
     const colors = [
       "#ffffd9",
@@ -15,8 +15,8 @@ const IndiaHeatMap = () => {
       "#253494",
       "#081d58",
     ]
-    const width = 700
-    const height = 700
+    const width = size || 600
+    const height = size || 600
 
     const selection = d3
       .select("#indiaMap")
@@ -37,6 +37,8 @@ const IndiaHeatMap = () => {
       .enter()
       .append("path")
       .attr("d", path)
+      .attr("class", "state")
+      .attr("stroke", "#fff")
       .attr("fill", colors[5])
       .on("click", (d, i) => {
         d3.select(this).attr("fill", colors[8])
@@ -44,9 +46,14 @@ const IndiaHeatMap = () => {
   }
 
   useEffect(() => {
-    d3.selectAll("svg").remove()
+    d3.select("#indiaMap").select("svg").remove()
     drawMap()
   }, [])
+
+  const colorize = () => {
+    const random = Math.floor(Math.random() * months.length)
+    console.log(random, [random])
+  }
 
   return <div id="indiaMap"></div>
 }

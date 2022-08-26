@@ -1,3 +1,5 @@
+import { Case } from "../cases/Case"
+
 export interface NotificationResponse {
   status_code: number
   data: Notification[]
@@ -11,7 +13,7 @@ export interface Notification {
   action_date: string
   is_notification_recieved: boolean
   notify_type: NotificationType
-  case: number[]
+  case: Case
   notify_to: number[]
 }
 

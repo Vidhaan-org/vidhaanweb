@@ -1,3 +1,4 @@
+import Router, { useRouter } from "next/router"
 import React from "react"
 import ColorTag from "../../../src/components/ColorTag"
 
@@ -21,6 +22,9 @@ const data = [
 ]
 
 const ur1 = () => {
+    const router = useRouter()
+    const {id} = router.query
+    data.find(data => data.id == id)
   return (
     <div className="h-auto min-h-full flex flex-col w-full px-10 pb-4 pt-14">
       <div className="bg-gray-200 rounded-md text-accent-blue font-semibold text-lg px-6 py-2">

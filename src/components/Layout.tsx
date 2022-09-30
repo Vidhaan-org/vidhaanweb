@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Dynamic>
         <div className="flex overflow-auto h-[100%] w-full">
           {user && router.route.includes("/dashboard/") && <SideNav />}
-          {typeof window !== undefined && (
+          {typeof window !== "undefined" && (
             <main className="h-full w-full flex pt-32 flex-col overflow-y-auto overflow-x-hidden items-center">
               {children}
             </main>

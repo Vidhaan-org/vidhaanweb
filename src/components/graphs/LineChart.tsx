@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
-import Chart from "react-apexcharts"
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false })
 import Dynamic from "../Dynamic"
+import dynamic from "next/dynamic"
 
 const LineChart = () => {
   const [options, setOptions] = useState({

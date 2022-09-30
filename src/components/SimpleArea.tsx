@@ -1,4 +1,5 @@
-import Chart from "react-apexcharts"
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false })
+import dynamic from "next/dynamic"
 import React, { useState } from "react"
 import Dynamic from "./Dynamic"
 

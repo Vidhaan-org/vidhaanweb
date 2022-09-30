@@ -21,10 +21,10 @@ const data = [
   },
 ]
 
-const ur1 = () => {
-    const router = useRouter()
-    const {id} = router.query
-    data.find(data => data.id == id)
+const Ur1 = () => {
+  const router = useRouter()
+  const { id } = router.query
+  // data.find(data => data.id == id)
   return (
     <div className="h-auto min-h-full flex flex-col w-full px-10 pb-4 pt-14">
       <div className="bg-gray-200 rounded-md text-accent-blue font-semibold text-lg px-6 py-2">
@@ -68,4 +68,4 @@ const ur1 = () => {
   )
 }
 
-export default ur1
+export default Ur1

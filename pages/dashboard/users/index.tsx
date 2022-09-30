@@ -73,7 +73,7 @@ const TableRow = ({ data }: { data?: User }) => {
       </div>
       <div className="flex gap-1 no-scrollbar w-full overflow-x-auto items-center">
         {data?.tab_permission?.map((per) => (
-          <ColorTag color="blue" text={per} />
+          <ColorTag key={per} color="blue" text={per} />
         ))}
       </div>
       <div className="flex gap-1 no-scrollbar w-full overflow-x-auto items-center">

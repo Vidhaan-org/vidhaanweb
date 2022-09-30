@@ -12,6 +12,7 @@ const PieChart = ({ data }: { data: number[] }) => {
         })
         return (
           <circle
+            key={_item}
             r="25%"
             cx="50%"
             strokeDasharray={`${num} 100`}

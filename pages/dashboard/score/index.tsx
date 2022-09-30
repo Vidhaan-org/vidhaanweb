@@ -5,7 +5,7 @@ import Button from "../../../src/components/Button"
 import Dynamic from "../../../src/components/Dynamic"
 import SelectOptions from "../../../src/components/SelectOptions"
 
-const index = () => {
+const Index = () => {
   const router = useRouter()
   return (
     <Dynamic>
@@ -84,4 +84,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

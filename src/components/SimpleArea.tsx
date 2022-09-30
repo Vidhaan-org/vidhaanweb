@@ -1,5 +1,6 @@
 import Chart from "react-apexcharts"
 import React, { useState } from "react"
+import Dynamic from "./Dynamic"
 
 const SimpleArea = () => {
   const [options, setOptions] = useState({
@@ -17,13 +18,17 @@ const SimpleArea = () => {
     },
   ])
   return (
-    <div className="app">
-      <div className="row">
-        <div className="mixed-chart">
-          <Chart options={options} series={series} type="bar" width="500" />
+    <Dynamic>
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            {typeof window !== "undefined" && (
+              <Chart options={options} series={series} type="bar" width="500" />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </Dynamic>
   )
 }
 

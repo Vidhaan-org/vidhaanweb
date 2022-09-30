@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
 import Chart from "react-apexcharts"
+import Dynamic from "../Dynamic"
 
 const LineChart = () => {
   const [options, setOptions] = useState({
@@ -19,13 +20,17 @@ const LineChart = () => {
   ])
 
   return (
-    <Chart
-      options={options}
-      series={series}
-      type="bar"
-      width={500}
-      height={320}
-    />
+    <Dynamic>
+      {typeof window !== "undefined" && (
+        <Chart
+          options={options}
+          series={series}
+          type="bar"
+          width={500}
+          height={320}
+        />
+      )}
+    </Dynamic>
   )
 }
 

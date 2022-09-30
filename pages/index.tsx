@@ -2,19 +2,29 @@ import type { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { useState } from "react"
 import lady from "../public/images/lady.png"
 import poster from "../public/images/rafiki.png"
 import news from "../public/images/rect.png"
 import useAuth from "../src/auth/auth"
 import Button from "../src/components/Button"
+import Dialog from "../src/components/Dialog"
 import Dynamic from "../src/components/Dynamic"
 import List from "../src/components/List"
+import Login from "../src/components/Login"
 
 const Home: NextPage = () => {
   const router = useRouter()
   const { user } = useAuth()
+  const [isLoginOpen, setLoginOpen] = useState<boolean>(false)
+
   return (
     <Dynamic>
+      <Dialog show={isLoginOpen} onClose={() => setLoginOpen(false)}>
+        <div className="min-w-[70vw] flex flex-col justify-center min-h-[70vh]">
+          <Login close={() => setLoginOpen(false)} />
+        </div>
+      </Dialog>
       <div className="w-full flex flex-col">
         <Head>
           <title>Vidhaan Home</title>
@@ -45,11 +55,11 @@ const Home: NextPage = () => {
                   rounded
                   width="min"
                   onClick={() => {
-                    router.push(user ? "/dashboard/home" : "/login")
+                    user ? router.push("/dashboard/home") : setLoginOpen(true)
                   }}
                 >
                   <div className="py-2 px-6">
-                    {user ? "Dashboard" : "Organization Login"}
+                    {user ? "Dashboard" : "Login / Organization Login"}
                   </div>
                 </Button>
               </div>

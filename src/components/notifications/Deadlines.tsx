@@ -66,18 +66,27 @@ const Deadlines = () => {
   return <Error />
 }
 
-const TableRow = ({ data }: { data: Notification }) => {
+const TableRow = ({ data }: { data?: Notification }) => {
   const router = useRouter()
   return (
     <div className="grid grid-cols-6 p-2 border-b border-gray-300 gap-4 items-center group hover:bg-green-100">
-      <div className="mr-5 line-clamp-1">CGHC01-043756-2019</div>
+      <div className="mr-5 line-clamp-1">{data?.case.cnr_number}</div>
       <div className="mr-5 line-clamp-1">
-        P.Suseela vs University Grants commission
+        {data?.case?.petitioner &&
+          data?.case?.petitioner[0]?.petitioner_name +
+            " vs University Grants Commission"}
       </div>
-      <div className="mr-5 line-clamp-1">13 July 2019</div>
+      <div className="mr-5 line-clamp-1">
+        {new Date(data?.action_date!).toDateString()}
+      </div>
       <div className="font-semibold text-yellow-400 text-right">Moderate</div>
       <div className="font-semibold text-red-400 text-center">Pending</div>
-      <Button type="fill" color="accent-blue" className="opacity-60">
+      <Button
+        onClick={() => router.push(`/dashboard/cases/${data?.case.id}`)}
+        type="fill"
+        color="accent-blue"
+        className="opacity-60"
+      >
         <div className="w-full text-center">View Details</div>
       </Button>
     </div>

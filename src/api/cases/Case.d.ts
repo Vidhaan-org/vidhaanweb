@@ -1,15 +1,21 @@
+export interface CaseResponse {
+  status_code: number
+  data: Case
+}
+
 export interface Case {
   id: string
   cnr_number: string
   case_type: string
   filling_number: string
+  case_status: string
   registration_number: string
   petitioner: petitioner[]
   respondent: respondent[]
   act: act[]
   advocate: advocate[]
   ia: ia[]
-  history: history[]
+  history: History[]
   order: order[]
   objection: objection[]
   document: document[]
@@ -99,9 +105,8 @@ interface advocate {
   advocate_type: string
 }
 
-interface history {
+export interface History {
   id: string
-  cause_list_type: string
   hearing_date: string
   purpose_of_hearing: string
   judge: string

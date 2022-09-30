@@ -62,21 +62,29 @@ const Hearings = () => {
           {data.map((item) => (
             <TableRow key={item.id} data={item} />
           ))}
+          {/* <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow />
+          <TableRow /> */}
         </div>
       </div>
     )
   return <Error />
 }
 
-const TableRow = ({ data }: { data: Notification }) => {
+const TableRow = ({ data }: { data?: Notification }) => {
   const router = useRouter()
   return (
     <div className="grid grid-cols-5 p-2 gap-4 items-center group hover:bg-gray-200">
-      <div className="mr-5 line-clamp-1">CGHC01-043756-2019</div>
+      <div className="mr-5 line-clamp-1">{data?.case.cnr_number}</div>
       <div className="mr-5 line-clamp-1">
-        P.Suseela vs University Grants commission
+        {data?.case?.petitioner[0]?.petitioner_name +
+          " vs University Grants Commission"}
       </div>
-      <div className="mr-5 line-clamp-1">13 July 2019</div>
+      <div className="mr-5 line-clamp-1">
+        {new Date(data?.action_date!).toDateString()}
+      </div>
       <div className="flex">
         <Button
           type="fill"
@@ -88,6 +96,7 @@ const TableRow = ({ data }: { data: Notification }) => {
       </div>
       <div className="grid grid-cols-3 items-center gap-3">
         <Button
+          onClick={() => router.push(`/dashboard/cases/${data?.case.id}`)}
           type="fill"
           color="accent-blue"
           className="col-span-2 opacity-60"

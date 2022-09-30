@@ -496,7 +496,7 @@ const FilePetition = () => {
             {/* act */}
             <div className={`${tab === "act" ? "flex" : "hidden"} flex-col`}>
               <div className="bg-gray-300 text-lg text-accent-blue px-6 py-2 rounded-md font-bold">
-                Act Detailsclass
+                Act Details
               </div>
               <div className="m-8 grid grid-cols-3 gap-8">
                 <div className="flex flex-col gap-1">

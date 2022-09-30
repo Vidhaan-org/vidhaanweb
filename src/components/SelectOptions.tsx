@@ -4,7 +4,7 @@ const SelectOptions = ({
   data,
   selected,
 }: {
-  data: string[]
+  data?: string[]
   selected?: boolean
 }) => {
   return (

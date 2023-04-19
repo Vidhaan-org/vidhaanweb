@@ -9,7 +9,7 @@ export enum REST_METHODS {
   DELETE = "DELETE",
 }
 
-export const BASE_API_URL = "https://vidhaan-backend.onrender.com"
+export const BASE_API_URL = "https://vidhaan-backend.fly.dev"
 
 const checkRefresh = async (token: Token) => {
   const jwtUser = jwt_decode<{ name: string; exp: number }>(token.value)
